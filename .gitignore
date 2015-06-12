@@ -1,0 +1,19 @@
+#Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+node_modules
+/*.log

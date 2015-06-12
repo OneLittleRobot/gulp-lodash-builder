@@ -1,0 +1,36 @@
+{
+  "name": "gulp-lodash-builder",
+  "version": "1.0.0",
+  "description": "A tool to create a custom Lodash file",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-util": "^3.0.5",
+    "lodash": "^3.9.3",
+    "lodash-cli": "^3.9.3",
+    "mkdirp": "^0.5.1",
+    "through2": "^2.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OneLittleRobot/gulp-lodash-builder.git"
+  },
+  "keywords": [
+    "lodash",
+    "custom",
+    "gulp"
+  ],
+  "author": "Kevin Thomas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OneLittleRobot/gulp-lodash-builder/issues"
+  },
+  "engines": {
+    "node": ">=0.10"
+  }
+}
