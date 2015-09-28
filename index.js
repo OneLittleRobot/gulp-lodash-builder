@@ -15,7 +15,7 @@ var pkg = require('lodash-cli/package.json'),
 var PLUGIN_NAME = 'gulp-lodash-builder';
 
 function gulpLodashRequire(options) {
-  var options = options ? options : {target: './lodash.custom.js', settings: {}};
+  var options = options ? options : {target: './lodash.custom.js', settings: {}, build: 'compat'};
   var dependiencies = [];
   var search = /_\.(\w*)/g;
 
@@ -52,6 +52,7 @@ function gulpLodashRequire(options) {
     childProcess.execFile(builder, [
         '-d',
         '-c',
+        options.build,
         'include=' + dependiencies.join(', '),
         'settings=' + JSON.stringify(options.settings)
       ],
