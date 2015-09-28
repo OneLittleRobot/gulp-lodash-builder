@@ -18,6 +18,7 @@ var lodashBuilder = require('gulp-lodash-builder');
 
 var options = {
   target: "/assets/javascript/vendor/lodash.custom.js",
+  build: 'compat',
   settings: {}
 };
 gulp.task('lodash', function (cb) {
