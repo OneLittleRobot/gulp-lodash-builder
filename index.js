@@ -16,7 +16,7 @@ var PLUGIN_NAME = 'gulp-lodash-builder';
 
 function gulpLodashRequire(options) {
   var options = options ? options : {target: './lodash.custom.js', ensure: [], settings: {}};
-  var dependiencies = [];
+  var dependencies = [];
   var search = /_\.(\w*)/g;
   
   if(options.ensure && options.ensure.length){
@@ -36,7 +36,7 @@ function gulpLodashRequire(options) {
         var string = String(body)
         var tmp = body.match(search);
         if (tmp) {
-          dependiencies = dependiencies.concat(tmp)
+          dependencies = dependencies.concat(tmp)
         }
         that.push(file);
         callback();
@@ -49,14 +49,14 @@ function gulpLodashRequire(options) {
 
   var flush = function flush(callback) {
     var that = this;
-    dependiencies = _.uniq(dependiencies).map(function (item) {
+    dependencies = _.uniq(dependencies).map(function (item) {
       return item.split('.')[1]
     });
-    gutil.log('Building Lodash for:', gutil.colors.green(dependiencies.join(',')));
+    gutil.log('Building Lodash for:', gutil.colors.green(dependencies.join(',')));
     childProcess.execFile(builder, [
         '-d',
         '-c',
-        'include=' + dependiencies.join(', '),
+        'include=' + dependencies.join(', '),
         'settings=' + JSON.stringify(options.settings)
       ],
       {maxBuffer: 1024 * 600},
