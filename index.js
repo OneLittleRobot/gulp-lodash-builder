@@ -15,10 +15,14 @@ var pkg = require('lodash-cli/package.json'),
 var PLUGIN_NAME = 'gulp-lodash-builder';
 
 function gulpLodashRequire(options) {
-  var options = options ? options : {target: './lodash.custom.js', settings: {}};
+  var options = options ? options : {target: './lodash.custom.js', ensure: [], settings: {}};
   var dependiencies = [];
   var search = /_\.(\w*)/g;
-
+  
+  if(options.ensure && options.ensure.length){
+    dependencies = dependencies.concat(options.ensure)
+  }
+  
   var transform = function (file, enc, callback) {
     var that = this;
     if (file.isBuffer()) {
