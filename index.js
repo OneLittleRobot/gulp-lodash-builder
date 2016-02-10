@@ -19,8 +19,14 @@ function gulpLodashRequire(options) {
   var dependencies = [];
   var search = /_\.(\w*)/g;
   
-  if(options.ensure && options.ensure.length){
-    dependencies = dependencies.concat(options.ensure)
+  if(_.isArray(options.ensure) && options.ensure.length){
+    options.ensure = _.map(options.ensure,function(methodName){
+      if((methodName.indexOf('_.')) < 0){
+        return "_." + methodName;
+      }
+      return methodName;
+    });
+    dependencies = dependencies.concat(options.ensure);
   }
   
   var transform = function (file, enc, callback) {
