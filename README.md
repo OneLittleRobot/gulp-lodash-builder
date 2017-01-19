@@ -18,6 +18,7 @@ var lodashBuilder = require('gulp-lodash-builder');
 
 var options = {
   target: "/assets/javascript/vendor/lodash.custom.js",
+  build: 'compat',
   settings: {}
 };
 gulp.task('lodash', function (cb) {
@@ -28,3 +29,17 @@ gulp.task('lodash', function (cb) {
     })
 });
 ```
+
+## Options
+
+### target
+
+`String` - Where to output the custom build lodash file.
+
+### build
+
+`String` - Which custom lodash build to use. Build types: `compat`, `modern`, `strict`, `modularize`. See [Lodash Custom Builds](https://lodash.com/custom-builds) for details on build options.
+
+### settings
+
+`Object` - Sent to Lodash CLI as `settings` for precompiling templates. See [Lodash Custom Builds](https://lodash.com/custom-builds) for more details.
